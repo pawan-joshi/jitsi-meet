@@ -59,6 +59,13 @@ export const NOTIFICATION_ICON = {
 };
 
 /**
+ * The identifier of the salesforce link notification.
+ *
+ * @type {string}
+ */
+export const SALESFORCE_LINK_NOTIFICATION_ID = 'SALESFORCE_LINK_NOTIFICATION';
+
+/**
  * The identifier of the lobby notification.
  *
  * @type {string}
@@ -66,25 +73,11 @@ export const NOTIFICATION_ICON = {
 export const LOBBY_NOTIFICATION_ID = 'LOBBY_NOTIFICATION';
 
 /**
- * The identifier of the local recording notification.
- *
- * @type {string}
- */
-export const LOCAL_RECORDING_NOTIFICATION_ID = 'LOCAL_RECORDING_NOTIFICATION_ID';
-
-/**
  * The identifier of the raise hand notification.
  *
  * @type {string}
  */
 export const RAISE_HAND_NOTIFICATION_ID = 'RAISE_HAND_NOTIFICATION';
-
-/**
- * The identifier of the salesforce link notification.
- *
- * @type {string}
- */
-export const SALESFORCE_LINK_NOTIFICATION_ID = 'SALESFORCE_LINK_NOTIFICATION';
 
 /**
  * Amount of participants beyond which no join notification will be emitted.

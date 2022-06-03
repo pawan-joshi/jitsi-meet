@@ -7,10 +7,7 @@ import {
     sendAnalytics
 } from '../../../analytics';
 import { JitsiRecordingConstants } from '../../../base/lib-jitsi-meet';
-import { stopLocalVideoRecording } from '../../actions';
 import { getActiveSession } from '../../functions';
-
-import LocalRecordingManager from './LocalRecordingManager';
 
 /**
  * The type of the React {@code Component} props of
@@ -27,11 +24,6 @@ export type Props = {
      * The redux representation of the recording session to be stopped.
      */
     _fileRecordingSession: Object,
-
-    /**
-     * Whether the recording is a local recording or not.
-     */
-    _localRecording: boolean,
 
     /**
      * The redux dispatch function.
@@ -76,15 +68,11 @@ export default class AbstractStopRecordingDialog<P: Props>
     _onSubmit() {
         sendAnalytics(createRecordingDialogEvent('stop', 'confirm.button'));
 
-        if (this.props._localRecording) {
-            this.props.dispatch(stopLocalVideoRecording());
-        } else {
-            const { _fileRecordingSession } = this.props;
+        const { _fileRecordingSession } = this.props;
 
-            if (_fileRecordingSession) {
-                this.props._conference.stopRecording(_fileRecordingSession.id);
-                this._toggleScreenshotCapture();
-            }
+        if (_fileRecordingSession) {
+            this.props._conference.stopRecording(_fileRecordingSession.id);
+            this._toggleScreenshotCapture();
         }
 
         return true;
@@ -117,7 +105,6 @@ export function _mapStateToProps(state: Object) {
     return {
         _conference: state['features/base/conference'].conference,
         _fileRecordingSession:
-            getActiveSession(state, JitsiRecordingConstants.mode.FILE),
-        _localRecording: LocalRecordingManager.isRecordingLocally()
+            getActiveSession(state, JitsiRecordingConstants.mode.FILE)
     };
 }

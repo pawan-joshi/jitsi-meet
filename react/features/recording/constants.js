@@ -45,8 +45,7 @@ export const RECORDING_ON_SOUND_ID = 'RECORDING_ON_SOUND';
  */
 export const RECORDING_TYPES = {
     JITSI_REC_SERVICE: 'recording-service',
-    DROPBOX: 'dropbox',
-    LOCAL: 'local'
+    DROPBOX: 'dropbox'
 };
 
 /**

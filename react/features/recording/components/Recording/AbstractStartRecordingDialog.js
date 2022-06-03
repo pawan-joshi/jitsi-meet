@@ -15,7 +15,7 @@ import {
 } from '../../../dropbox';
 import { NOTIFICATION_TIMEOUT_TYPE, showErrorNotification } from '../../../notifications';
 import { toggleRequestingSubtitles } from '../../../subtitles';
-import { setSelectedRecordingService, startLocalVideoRecording } from '../../actions';
+import { setSelectedRecordingService } from '../../actions';
 import { RECORDING_TYPES } from '../../constants';
 
 export type Props = {
@@ -293,9 +293,8 @@ class AbstractStartRecordingDialog extends Component<Props, State> {
         let appData;
         const attributes = {};
 
-        switch (this.state.selectedRecordingService) {
-        case RECORDING_TYPES.DROPBOX: {
-            if (_isDropboxEnabled && _token) {
+        if (_isDropboxEnabled && this.state.selectedRecordingService === RECORDING_TYPES.DROPBOX) {
+            if (_token) {
                 appData = JSON.stringify({
                     'file_recording_metadata': {
                         'upload_credentials': {
@@ -314,22 +313,13 @@ class AbstractStartRecordingDialog extends Component<Props, State> {
 
                 return;
             }
-            break;
-        }
-        case RECORDING_TYPES.JITSI_REC_SERVICE: {
+        } else {
             appData = JSON.stringify({
                 'file_recording_metadata': {
                     'share': this.state.sharingEnabled
                 }
             });
             attributes.type = RECORDING_TYPES.JITSI_REC_SERVICE;
-            break;
-        }
-        case RECORDING_TYPES.LOCAL: {
-            dispatch(startLocalVideoRecording());
-
-            return true;
-        }
         }
 
         sendAnalytics(

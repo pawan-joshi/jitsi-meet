@@ -10,18 +10,17 @@ import {
     LOCAL_PARTICIPANT_AUDIO_LEVEL_CHANGED,
     LOCAL_PARTICIPANT_RAISE_HAND,
     MUTE_REMOTE_PARTICIPANT,
-    OVERWRITE_PARTICIPANT_NAME,
-    OVERWRITE_PARTICIPANTS_NAMES,
     PARTICIPANT_ID_CHANGED,
     PARTICIPANT_JOINED,
     PARTICIPANT_KICKED,
     PARTICIPANT_LEFT,
     PARTICIPANT_UPDATED,
     PIN_PARTICIPANT,
-    RAISE_HAND_UPDATED,
     SCREENSHARE_PARTICIPANT_NAME_CHANGED,
     SET_LOADABLE_AVATAR_URL,
-    SET_LOCAL_PARTICIPANT_RECORDING_STATUS
+    RAISE_HAND_UPDATED,
+    OVERWRITE_PARTICIPANT_NAME,
+    OVERWRITE_PARTICIPANTS_NAMES
 } from './actionTypes';
 import {
     DISCO_REMOTE_CONTROL_FEATURE
@@ -682,21 +681,5 @@ export function overwriteParticipantsNames(participantList) {
     return {
         type: OVERWRITE_PARTICIPANTS_NAMES,
         participantList
-    };
-}
-
-/**
- * Local video recording status for the local participant.
- *
- * @param {boolean} recording - If local recording is ongoing.
- * @returns {{
- *     type: SET_LOCAL_PARTICIPANT_RECORDING_STATUS,
- *     recording: boolean
- * }}
- */
-export function updateLocalRecordingStatus(recording) {
-    return {
-        type: SET_LOCAL_PARTICIPANT_RECORDING_STATUS,
-        recording
     };
 }
