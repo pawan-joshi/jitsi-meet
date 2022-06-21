@@ -449,8 +449,8 @@ PODS:
     - RNSound/Core (= 0.11.1)
   - RNSound/Core (0.11.1):
     - React-Core
-  - RNSVG (12.1.0):
-    - React
+  - RNSVG (12.3.0):
+    - React-Core
   - RNWatch (1.0.4):
     - React
   - Yoga (1.14.0)
@@ -743,7 +743,7 @@ SPEC CHECKSUMS:
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
   RNScreens: 522705f2e5c9d27efb17f24aceb2bf8335bc7b8e
   RNSound: 27e8268bdb0a1f191f219a33267f7e0445e8d62f
-  RNSVG: ce9d996113475209013317e48b05c21ee988d42e
+  RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   RNWatch: 99637948ec9b5c9ec5a41920642594ad5ba07e80
   Yoga: 17cd9a50243093b547c1e539c749928dd68152da
 

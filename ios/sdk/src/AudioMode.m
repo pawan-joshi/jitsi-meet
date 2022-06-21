@@ -111,9 +111,9 @@ RCT_EXPORT_MODULE();
         earpieceConfig.mode = AVAudioSessionModeVoiceChat;
 
         forceSpeaker = NO;
-        forceEarpiece = NO;
+        forceEarpiece = YES;
         isSpeakerOn = NO;
-        isEarpieceOn = NO;
+        isEarpieceOn = YES;
 
         RTCAudioSession *session = JitsiAudioSession.rtcAudioSession;
         [session addDelegate:self];
